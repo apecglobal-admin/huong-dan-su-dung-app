@@ -5,25 +5,25 @@ import { BookOpen, Video, FileText, HelpCircle } from "lucide-react"
 const resources = [
   {
     icon: <BookOpen className="w-8 h-8" />,
-    title: "Tài liệu hướng dẫn",
+    title: "Tài liệu hình anh",
     description: "Đọc các hướng dẫn chi tiết về cách sử dụng từng tính năng của ứng dụng.",
     link: "https://www.canva.com",
     linkText: "Xem tài liệu",
   },
   {
     icon: <Video className="w-8 h-8" />,
-    title: "Video hướng dẫn",
+    title: "Tài liệu video",
     description: "Xem các video hướng dẫn từng bước để hiểu rõ hơn về các tính năng.",
     link: "https://www.youtube.com",
     linkText: "Xem video",
   },
-  {
-    icon: <FileText className="w-8 h-8" />,
-    title: "Thiết kế Canva",
-    description: "Truy cập các mẫu thiết kế và tài liệu trực quan trên Canva.",
-    link: "https://www.canva.com",
-    linkText: "Mở Canva",
-  },
+  // {
+  //   icon: <FileText className="w-8 h-8" />,
+  //   title: "Thiết kế Canva",
+  //   description: "Truy cập các mẫu thiết kế và tài liệu trực quan trên Canva.",
+  //   link: "https://www.canva.com",
+  //   linkText: "Mở Canva",
+  // },
   {
     icon: <HelpCircle className="w-8 h-8" />,
     title: "Hỗ trợ",
@@ -40,7 +40,7 @@ export function Resources() {
         <h2 className="text-4xl font-bold mb-4 text-foreground">Tài nguyên hữu ích</h2>
         <p className="text-lg text-muted-foreground mb-12">Chọn cách học tập phù hợp nhất với bạn</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {resources.map((resource, index) => (
             <Card key={index} className="p-6 hover:shadow-lg transition-shadow border border-border">
               <div className="text-primary mb-4">{resource.icon}</div>
