@@ -9,7 +9,7 @@ export default function RutTienPage() {
         canvaLink="https://www.canva.com"
         youtubeLink="https://www.youtube.com"
       >
-        <div className="space-y-6">
+        {/* <div className="space-y-6">
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">THAO TÁC</h2>
             <p className="text-muted-foreground">Sau khi đăng nhập thành công:</p>
@@ -59,7 +59,7 @@ export default function RutTienPage() {
               </li>
             </ol>
           </div>
-        </div>
+        </div> */}
       </ModulePage>
     </div>
   )
