@@ -11,7 +11,7 @@ export default function AndroidPage() {
         canvaLink="https://www.canva.com"
         youtubeLink="https://www.youtube.com"
       >
-        <div className="space-y-6">
+        {/* <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-bold mb-3 text-foreground">Các bước cài đặt</h2>
             <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
@@ -22,7 +22,7 @@ export default function AndroidPage() {
               <li>Mở ứng dụng và đăng nhập tài khoản của bạn</li>
             </ol>
           </div>
-        </div>
+        </div> */}
       </ModulePage>
     </div>
   )

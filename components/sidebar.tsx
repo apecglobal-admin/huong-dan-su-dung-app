@@ -3,35 +3,37 @@
 import type React from "react"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ChevronDown, BookOpen } from "lucide-react"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
-interface NavItem {
+export interface NavItem {
   label: string
   icon?: React.ReactNode
   href?: string
   children?: NavItem[]
 }
 
-const navItems: NavItem[] = [
+export const navItems: NavItem[] = [
   {
-    label: "APEC SPACE SỬ DỤNG APP",
+    label: "HƯỚNG DẪN SỬ DỤNG",
     icon: <BookOpen className="w-4 h-4" />,
     href: "/",
   },
   {
     label: "TÀI ỨNG DỤNG",
     children: [
-      { label: "Hệ điều hành iOS (Apple)", href: "/tai-ung-dung/ios" },
+      { label: "Hệ điều hành iOS", href: "/tai-ung-dung/ios" },
       { label: "Hệ điều hành Android", href: "/tai-ung-dung/android" },
     ],
   },
   {
     label: "ĐĂNG KÝ/ĐĂNG NHẬP",
     children: [
-      { label: "Đăng ký", href: "/dang-ky-dang-nhap/dang-ky" },
-      { label: "Đăng nhập", href: "/dang-ky-dang-nhap/dang-nhap" },
+      { label: "Đăng ký/đăng nhập", href: "/dang-ky-dang-nhap/dang-ky-dang-nhap" },
+      { label: "Quên mật khẩu", href: "/dang-ky-dang-nhap/quen-mat-khau" },
+      { label: "Giới thiệu Trang chủ & Tài khoản của tôi", href: "/dang-ky-dang-nhap/gioi-thieu-trang-chu" },
     ],
   },
   {
@@ -44,33 +46,24 @@ const navItems: NavItem[] = [
   {
     label: "ĐỊA ĐIỂM",
     children: [
-      { label: "Đăng ký của hàng (Địa điểm mua sắm)", href: "/dia-diem/dang-ky-cua-hang" },
-      { label: "Quản lý sản phẩm", href: "/dia-diem/quan-ly-san-pham" },
-      { label: "Cập nhật của hàng", href: "/dia-diem/cap-nhat-cua-hang" },
-      { label: "Chương trình khuyến mãi tham gia", href: "/dia-diem/khuyen-mai" },
-      { label: "Thông kế & báo cáo", href: "/dia-diem/thong-ke-bao-cao" },
-      { label: "Danh sách đặt trước", href: "/dia-diem/danh-sach-dat-truoc" },
-      { label: "Danh sách đơn hàng", href: "/dia-diem/danh-sach-don-hang" },
-      { label: "Giao diện cấu hình banner - ngành hàng", href: "/dia-diem/banner-config" },
+      { label: "Đăng ký cửa hàng", href: "/dia-diem/dang-ky-cua-hang-title" },
+      { label: "Cập nhật và tổng quan cửa hàng", href: "/dia-diem/cap-nhat-tong-quan" },
+      { label: "Sản Phẩm", href: "/dia-diem/them-san-pham" },
+      { label: "Tạo Voucher", href: "/dia-diem/tao-voucher" },
+      { label: "Tham gia chương trình khuyến mãi", href: "/dia-diem/tham-gia-khuyen-mai" },
     ],
   },
   {
     label: "ĐẶT HÀNG",
     children: [
-      { label: "Video hướng dẫn đặt hàng", href: "/dat-hang/video-huong-dan" },
-      { label: "Đặt hàng", href: "/dat-hang/dat-hang" },
-      { label: "Đánh giá", href: "/dat-hang/danh-gia" },
-      { label: "Quét QRcode thanh toán", href: "/dat-hang/qr-code" },
+      { label: "Đăt hàng/Dịch vụ", href: "/dat-hang/dat-hang-dich-vu" },
     ],
   },
-  
+
   {
     label: "THÔNG TIN TÀI KHOẢN",
     children: [
-      { label: "Quản lý thông tin tài khoản", href: "/tai-khoan/quan-ly-thong-tin" },
-      { label: "Quản lý Affiliate (Mạng lưới của tôi)", href: "/tai-khoan/affiliate" },
-      { label: "Quản lý QRcode", href: "/tai-khoan/qr-code" },
-      { label: "Yêu cầu hỗ trợ", href: "/tai-khoan/ho-tro" },
+      { label: "Yêu cầu hỗ trợ", href: "/tai-khoan/tinh-nang-ho-tro" },
     ],
   },
 ]
@@ -128,8 +121,19 @@ export function Sidebar() {
   return (
     <aside className="w-64 bg-sidebar border-r border-sidebar-border overflow-y-auto">
       <div className="p-6 border-b border-sidebar-border">
-        <h1 className="text-lg font-bold text-sidebar-foreground">APEC SPACE</h1>
-        <p className="text-xs text-sidebar-foreground/60 mt-1">Hướng dẫn sử dụng</p>
+        <div className="flex items-center gap-3 mb-3">
+          <Image
+            src="/Logo.png"
+            alt="APEC SPACE Logo"
+            width={40}
+            height={40}
+            className="rounded"
+          />
+          <div>
+            <h1 className="text-lg font-bold text-sidebar-foreground">APEC SPACE</h1>
+            <p className="text-xs text-sidebar-foreground/60">Hướng dẫn sử dụng</p>
+          </div>
+        </div>
       </div>
 
       <nav className="py-4">

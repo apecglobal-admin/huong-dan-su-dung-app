@@ -1,11 +1,14 @@
+"use client"
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { BookOpen, Video, FileText, HelpCircle } from "lucide-react"
+import { ImageCarouselModal } from "@/components/image-carousel-modal"
 
 const resources = [
   {
     icon: <BookOpen className="w-8 h-8" />,
-    title: "Tài liệu hình anh",
+    title: "Tài liệu hình ảnh",
     description: "Đọc các hướng dẫn chi tiết về cách sử dụng từng tính năng của ứng dụng.",
     link: "https://www.canva.com",
     linkText: "Xem tài liệu",
@@ -34,6 +37,8 @@ const resources = [
 ]
 
 export function Resources() {
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false)
+
   return (
     <section className="py-20 px-8 bg-background">
       <div className="max-w-6xl mx-auto">
@@ -46,15 +51,28 @@ export function Resources() {
               <div className="text-primary mb-4">{resource.icon}</div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">{resource.title}</h3>
               <p className="text-sm text-muted-foreground mb-6">{resource.description}</p>
-              <a href={resource.link} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className="w-full bg-transparent">
+              {index === 0 ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full bg-transparent"
+                  onClick={() => setIsCarouselOpen(true)}
+                >
                   {resource.linkText}
                 </Button>
-              </a>
+              ) : (
+                <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="sm" className="w-full bg-transparent">
+                    {resource.linkText}
+                  </Button>
+                </a>
+              )}
             </Card>
           ))}
         </div>
       </div>
+
+      <ImageCarouselModal open={isCarouselOpen} onOpenChange={setIsCarouselOpen} />
     </section>
   )
 }
