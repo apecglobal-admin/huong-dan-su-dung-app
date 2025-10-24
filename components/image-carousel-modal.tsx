@@ -21,6 +21,9 @@ interface ImageCarouselModalProps {
 
 // Mapping of pages to their image sequences (title + steps)
 const pageImageMapping: Record<string, number[]> = {
+  // Home - all slides
+  '/': Array.from({ length: 52 }, (_, i) => i + 1), // HƯỚNG DẪN SỬ DỤNG - all 52 slides
+
   // Existing pages
   '/tai-ung-dung/ios': [3], // iOS installation
   '/tai-ung-dung/android': [3], // Android installation
@@ -69,43 +72,54 @@ export function ImageCarouselModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent 
-        className="w-screen sm:w-full max-w-none sm:max-w-4xl flex flex-col p-0 sm:p-6 left-0 sm:left-1/2 right-0 sm:right-auto translate-x-0 sm:translate-x-[-50%] rounded-none sm:rounded-lg"
+      <DialogContent
+        className="fixed left-1/2 top-1/2 z-[60] flex w-screen max-w-[96vw] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden border border-white/10 bg-[#07051a] px-0 pb-10 pt-16 shadow-[0_45px_120px_-45px_rgba(7,5,26,0.9)] sm:w-full sm:max-w-5xl sm:rounded-[32px] sm:px-12 sm:pb-12 sm:pt-14 [&>button]:top-4 [&>button]:right-4 [&>button]:flex [&>button]:h-10 [&>button]:w-10 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-full [&>button]:border [&>button]:border-white/30 [&>button]:bg-white/10 [&>button]:text-white [&>button]:hover:bg-white/20"
         showCloseButton={true}
       >
-        <div className="flex-1 flex flex-col items-center justify-center min-h-0 px-0 sm:px-8 pt-12 sm:pt-0 w-full">
+        <div className="pointer-events-none absolute inset-x-[-30%] top-[-40%] h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[160px]" />
+        <div className="pointer-events-none absolute inset-x-[-20%] bottom-[-45%] h-[420px] w-[420px] rounded-full bg-sky-500/15 blur-[180px]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 via-transparent to-transparent" />
+
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-center min-h-0 w-full px-0">
           <div className="relative w-full flex items-center justify-center">
-            <Carousel 
-              setApi={setCarouselApi} 
-              className="w-full"
+            <Carousel
+              setApi={setCarouselApi}
+              className="relative mx-auto w-full max-w-[min(620px,92vw)]"
               opts={{
                 align: "center",
                 loop: true,
+                dragFree: false,
+                containScroll: "trimSnaps",
               }}
             >
-              <CarouselContent className="h-[60vh] sm:h-[500px] lg:h-[600px] -ml-2 sm:-ml-4">
+              <CarouselContent className="h-[60vh] sm:h-[62vh] md:h-[64vh] lg:h-[520px] xl:h-[560px] 2xl:h-[600px] -ml-4 sm:-ml-6">
                 {displayImages.map((imageNum) => (
-                  <CarouselItem key={imageNum} className="pl-2 sm:pl-4 flex items-center justify-center">
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      <Image
-                        src={`/HDSD/${imageNum}.jpg`}
-                        alt={`Hướng dẫn bước ${imageNum}`}
-                        width={0}
-                        height={0}
-                        className="w-full h-full"
-                        sizes="100vw"
-                        priority={imageNum <= 3}
-                      />
+                  <CarouselItem key={imageNum} className="pl-4 sm:pl-6 flex items-center justify-center">
+                    <div className="group relative flex h-full w-full max-w-[min(560px,85vw)] items-center justify-center">
+                      <div className="absolute inset-0 -z-10 rounded-[36px] bg-gradient-to-br from-white/10 via-purple-500/10 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+                      <div className="relative flex h-full w-full items-center justify-center rounded-[32px] border border-white/15 bg-white/5 p-3 shadow-[0_40px_120px_-45px_rgba(9,9,45,0.85)] backdrop-blur">
+                        <div className="relative h-full w-full overflow-hidden rounded-[24px] bg-black/90" style={{ aspectRatio: "9 / 16" }}>
+                          <Image
+                            src={`/HDSD/${imageNum}.jpg`}
+                            alt={`Hướng dẫn bước ${imageNum}`}
+                            width={0}
+                            height={0}
+                            className="h-full w-full object-contain select-none"
+                            sizes="100vw"
+                            priority={imageNum <= 3}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="h-8 w-8 sm:h-10 sm:w-10 left-2 sm:left-0 sm:-left-12 top-1/2" />
-              <CarouselNext className="h-8 w-8 sm:h-10 sm:w-10 right-2 sm:right-0 sm:-right-12 top-1/2" />
+              <CarouselPrevious className="left-0 sm:-left-16 top-1/2 z-10 h-12 w-12 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 text-white shadow-[0_10px_30px_rgba(79,70,229,0.35)] backdrop-blur transition hover:bg-white/20" />
+              <CarouselNext className="right-0 sm:-right-16 top-1/2 z-10 h-12 w-12 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 text-white shadow-[0_10px_30px_rgba(79,70,229,0.35)] backdrop-blur transition hover:bg-white/20" />
             </Carousel>
           </div>
-          <div className="flex items-center justify-center gap-2 mt-3 sm:mt-6">
-            <span className="text-xs sm:text-sm font-medium text-foreground">
+          <div className="mt-4 sm:mt-8 flex items-center justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white/80">
               {currentIndex + 1} / {displayImages.length}
             </span>
           </div>
