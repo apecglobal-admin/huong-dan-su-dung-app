@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ImageCarouselModal } from "@/components/image-carousel-modal"
 import { VideoModal } from "@/components/video-modal"
-import { ArrowRight, Image as ImageIcon, Video as VideoIcon } from "lucide-react"
+import { Image as ImageIcon, Video as VideoIcon } from "lucide-react"
 
 const quickActions = [
   { label: "Hướng dẫn sử dụng", href: "/" },
@@ -103,16 +103,16 @@ export function Hero() {
 
         {expandedMode && (
           <div key={expandedMode} className="grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-5 text-white/90 backdrop-blur animate-in fade-in slide-in-from-top-2">
-            <div className="grid gap-3 grid-cols-2 max-[360px]:grid-cols-1">
+            <div className="grid auto-rows-fr gap-3 grid-cols-2 max-[360px]:grid-cols-1">
               {activeActions.map((action, index) => (
                 <button
                   key={`${expandedMode}-${action.href}`}
                   onClick={() => handleActionClick(action.href)}
-                  className="group flex items-center justify-between gap-3 rounded-2xl bg-white/10 px-4 py-3 text-left text-sm font-medium transition hover:bg-white/20 animate-in fade-in slide-in-from-bottom-2"
+                  className="group flex h-full items-center gap-3 rounded-2xl bg-white/10 px-4 py-3 text-left text-sm font-semibold uppercase transition hover:bg-white/20 animate-in fade-in slide-in-from-bottom-2"
                   style={{ animationDelay: `${index * 60}ms` }}
                 >
-                  <span className="flex-1 whitespace-normal break-words text-left leading-snug">{action.label}</span>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-white/60 transition group-hover:translate-x-1 group-hover:text-white" />
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-base font-bold">{index + 1}</span>
+                  <span className="flex-1 whitespace-normal break-words text-left leading-snug uppercase">{action.label.toUpperCase()}</span>
                 </button>
               ))}
             </div>
