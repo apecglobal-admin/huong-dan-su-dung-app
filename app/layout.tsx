@@ -1,12 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Be_Vietnam_Pro } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ClientLayout } from "@/components/client-layout"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const beVietnam = Be_Vietnam_Pro({ subsets: ["latin", "vietnamese"], weight: ["400", "500", "600", "700"], display: "swap" })
 
 export const metadata: Metadata = {
   title: "APEC SPACE - Hướng dẫn sử dụng",
@@ -21,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`font-sans antialiased`}>
+      <body className={`${beVietnam.className} antialiased`}>
         <ClientLayout>{children}</ClientLayout>
         <Analytics />
       </body>
