@@ -18,10 +18,10 @@ export default function Banner() {
                 Hướng dẫn sử dụng
               </span>
               <div className="space-y-6">
-                <h1 className="text-balance text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl">
+                <h1 className="text-balance text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl max-[520px]:text-3xl max-[430px]:text-2xl max-[360px]:text-xl max-[320px]:text-lg">
                   NỀN TẢNG SIÊU ỨNG DỤNG
                 </h1>
-                <p className="text-lg leading-relaxed text-neutral-600 sm:text-xl">
+                <p className="text-lg leading-relaxed text-neutral-600 sm:text-xl max-[520px]:text-base max-[430px]:text-sm max-[360px]:text-xs max-[320px]:text-[11px]">
                   Khai thác toàn bộ hệ sinh thái ApecSpace với hướng dẫn trực quan, chi tiết cho từng nghiệp vụ và phòng ban.
                 </p>
               </div>
