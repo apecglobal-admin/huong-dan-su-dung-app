@@ -19,27 +19,27 @@ export default function Banner() {
               </span>
               <div className="space-y-6">
                 <h1 className="text-balance text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl">
-                  Nền tảng siêu ứng dụng
+                  NỀN TẢNG SIÊU ỨNG DỤNG
                 </h1>
                 <p className="text-lg leading-relaxed text-neutral-600 sm:text-xl">
                   Khai thác toàn bộ hệ sinh thái ApecSpace với hướng dẫn trực quan, chi tiết cho từng nghiệp vụ và phòng ban.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-3 max-[465px]:grid-cols-1 sm:grid-cols-2 sm:gap-0 sm:overflow-hidden sm:rounded-[40px] sm:border sm:border-red-500/30 sm:bg-white sm:shadow-[0_32px_48px_-24px_rgba(244,63,94,0.35)] sm:[&>a]:flex-1 sm:[&>a]:rounded-none sm:[&>a]:border-0 sm:[&>a]:bg-transparent sm:[&>a]:px-8 sm:[&>a]:py-5 sm:[&>a]:shadow-none sm:[&>a]:hover:-translate-y-0 sm:[&>a]:hover:bg-red-50/60 sm:[&>a]:hover:text-red-700 sm:[&>a]:active:scale-100 sm:[&>a:not(:last-child)]:border-r sm:[&>a:not(:last-child)]:border-red-500/20 sm:[&>a]:gap-4 sm:[&>a]:justify-center">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-0 sm:overflow-hidden sm:rounded-[40px] sm:border sm:border-red-500/30 sm:bg-white sm:shadow-[0_32px_48px_-24px_rgba(244,63,94,0.35)] sm:[&>a]:flex-1 sm:[&>a]:rounded-none sm:[&>a]:border-0 sm:[&>a]:bg-transparent sm:[&>a]:px-8 sm:[&>a]:py-5 sm:[&>a]:shadow-none sm:[&>a]:hover:-translate-y-0 sm:[&>a]:hover:bg-red-50/60 sm:[&>a]:hover:text-red-700 sm:[&>a]:active:scale-100 sm:[&>a:not(:last-child)]:border-r sm:[&>a:not(:last-child)]:border-red-500/20 sm:[&>a]:gap-4 sm:[&>a]:justify-center">
                 <ActionButton
-                  href="https://apps.apple.com/"
-                  icon={<Apple className="h-5 w-5" />}
+                  href="https://apps.apple.com/vn/app/apec-space/id6743482188?l=vi"
+                  icon={<Image src="/apple-app-store.svg" alt="App Store" width={28} height={28} className="h-7 w-7" />}
                   label={<>
-                    <span className="text-sm leading-none">Tải trên</span>
-                    <span className="text-lg font-semibold leading-none"> APP STORE</span>
+                    <span className="text-sm leading-none max-[405px]:text-xs max-[355px]:text-[11px] max-[340px]:hidden">Tải ứng dụng trên</span>
+                    <span className="text-lg font-semibold leading-none max-[405px]:text-sm max-[355px]:text-xs max-[320px]:text-[10px]"> APP STORE</span>
                   </>}
                 />
                 <ActionButton
-                  href="https://play.google.com/"
-                  icon={<Play className="h-5 w-5" />}
+                  href="https://play.google.com/store/apps/details?id=vn.com.neotech.apecspace"
+                  icon={<Image src="/chplay.png" alt="CH Play" width={28} height={28} className="h-7 w-7 object-contain" />}
                   label={<>
-                    <span className="text-sm leading-none">Tải trên</span>
-                    <span className="text-lg font-semibold leading-none"> CH PLAY</span>
+                    <span className="text-sm leading-none max-[405px]:text-xs max-[355px]:text-[11px] max-[340px]:hidden">Tải ứng dụng trên</span>
+                    <span className="text-lg font-semibold leading-none max-[405px]:text-sm max-[355px]:text-xs max-[320px]:text-[10px]"> GOOGLE PLAY</span>
                   </>}
                 />
               </div>
@@ -99,13 +99,13 @@ function ActionButton({ href, label, icon }: { href: string; label: React.ReactN
   return (
     <Link
       href={href}
-      className="group animate-heartbeat inline-flex min-h-[68px] w-full items-center gap-4 rounded-3xl border border-red-500/20 bg-white/80 px-6 py-4 text-left text-red-600 shadow-lg shadow-red-500/10 transition duration-300 hover:-translate-y-0.5 hover:border-red-500 hover:text-red-700 hover:shadow-red-500/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-500/25"
+      className="group animate-heartbeat inline-flex min-h-[68px] w-full items-center gap-4 rounded-3xl border border-red-500/20 bg-white/80 px-6 py-4 text-left text-red-600 shadow-lg shadow-red-500/10 transition duration-300 hover:-translate-y-0.5 hover:border-red-500 hover:text-red-700 hover:shadow-red-500/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-500/25 max-[520px]:flex-col max-[520px]:items-center max-[520px]:gap-3 max-[520px]:text-center"
     >
-      <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-red-100 text-red-600 transition-colors duration-300 group-hover:bg-red-500 group-hover:text-white">
+      <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-red-100 text-red-600 transition-colors duration-300 group-hover:bg-red-500 group-hover:text-white max-[520px]:h-12 max-[520px]:w-12">
         {icon}
         <span className="absolute inset-0 -z-10 rounded-2xl bg-red-500/40 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
       </span>
-      <span className="flex flex-col gap-1 leading-tight text-red-700">
+      <span className="flex flex-col gap-1 leading-tight text-red-700 max-[520px]:items-center max-[520px]:text-center">
         {label}
       </span>
     </Link>
