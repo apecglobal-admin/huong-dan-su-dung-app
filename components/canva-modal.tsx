@@ -6,9 +6,10 @@ import CanvaEmbedInline from "@/components/CanvaEmbed"
 interface CanvaModalProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  canvaUrl: string
 }
 
-export function CanvaModal({ open, onOpenChange }: CanvaModalProps) {
+export function CanvaModal({ open, onOpenChange, canvaUrl }: CanvaModalProps) {
   if (!open) return null
 
   return (
@@ -22,7 +23,7 @@ export function CanvaModal({ open, onOpenChange }: CanvaModalProps) {
       </button>
 
       <div className="h-full w-full overflow-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <CanvaEmbedInline />
+        <CanvaEmbedInline src={canvaUrl} />
       </div>
 
       <style jsx>{`
