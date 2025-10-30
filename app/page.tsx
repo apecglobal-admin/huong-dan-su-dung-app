@@ -110,6 +110,7 @@ const CANVA_LINKS: Record<string, string> = {
   "/tai-khoan/xac-thuc-ho-so": "https://www.canva.com/design/DAG3Oplp0kg/kVRS5AE9WyqqOdddkZ6Kww/view?embed",
   "/nop-rut-tien/nop-tien": "https://www.canva.com/design/DAG3JCVt09c/PYare0itQ_mnhG4cgL9Ihg/view?embed",
   "/nop-rut-tien/rut-tien": "https://www.canva.com/design/DAG3JOz3AHA/vcWIXbADRrZ8GOq2_gv-bw/view?embed",
+  "/nop-rut-tien/thanh-toan": "https://www.canva.com/design/DAG3Plz1h_8/YQS9N1mmpViVaolPD1olCg/view?embed",
   "/dat-hang/dat-hang-dich-vu": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
   "/dat-hang/uu-dai": "https://www.canva.com/design/DAG3Plz1h_8/YQS9N1mmpViVaolPD1olCg/view?embed",
   "/dat-hang/lich-su-giao-dich": "https://www.canva.com/design/DAG3OlPHQqE/EcxFpgWdnUD3rvYzWPxhyA/view?embed",
