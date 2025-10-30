@@ -1,6 +1,10 @@
-export default function CanvaEmbedInline() {
+interface CanvaEmbedInlineProps {
+  src: string
+}
+
+export default function CanvaEmbedInline({ src }: CanvaEmbedInlineProps) {
   return (
-   <div
+    <div
       style={{
         position: 'relative',
         width: '100%',
@@ -16,7 +20,7 @@ export default function CanvaEmbedInline() {
     >
       <iframe
         loading="lazy"
-        src="https://www.canva.com/design/DAG2sAOfovk/s5KVB_VCut44bv54Bss5Mw/view?embed"
+        src={src}
         allowFullScreen
         allow="fullscreen"
         style={{
@@ -34,5 +38,5 @@ export default function CanvaEmbedInline() {
         sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
       />
     </div>
-  );
+  )
 }

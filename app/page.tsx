@@ -102,12 +102,35 @@ const quickActions = [
   },
 ] as const satisfies readonly QuickAction[]
 
+const DEFAULT_CANVA_URL = "https://www.canva.com/design/DAG3KE2Xdbw/IDs_X-vrQHrYR2FxEaTegw/view?embed"
+
+const CANVA_LINKS: Record<string, string> = {
+  "/tai-ung-dung": "https://www.canva.com/design/DAG3KGpL3eo/Jg2nVVBz5XT_odjKNVD-FA/view?embed",
+  "/dang-ky-dang-nhap/dang-ky-dang-nhap": "https://www.canva.com/design/DAG3JKuqwoM/aW4R2Oc-XBGslQk5RwnBIw/view?embed",
+  "/tai-khoan/xac-thuc-ho-so": "https://www.canva.com/design/DAG3Oplp0kg/kVRS5AE9WyqqOdddkZ6Kww/view?embed",
+  "/nop-rut-tien/nop-tien": "https://www.canva.com/design/DAG3JCVt09c/PYare0itQ_mnhG4cgL9Ihg/view?embed",
+  "/nop-rut-tien/rut-tien": "https://www.canva.com/design/DAG3JOz3AHA/vcWIXbADRrZ8GOq2_gv-bw/view?embed",
+  "/dat-hang/dat-hang-dich-vu": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
+  "/dat-hang/uu-dai": "https://www.canva.com/design/DAG3Plz1h_8/YQS9N1mmpViVaolPD1olCg/view?embed",
+  "/dat-hang/lich-su-giao-dich": "https://www.canva.com/design/DAG3OlPHQqE/EcxFpgWdnUD3rvYzWPxhyA/view?embed",
+  "/dia-diem/dang-ky-cua-hang-title": "https://www.canva.com/design/DAG3JlzQehw/CRbyRtvfkNr3fh9H_AulQg/view?embed",
+  "/dia-diem/cap-nhat-tong-quan": "https://www.canva.com/design/DAG3JvI59tI/_2PUrOcVtXDvKA-RWF8l2w/view?embed",
+  "/dia-diem/them-san-pham": "https://www.canva.com/design/DAG3Jvg68yA/ETpDfJ9IOjvkZI47eEnDJw/view?embed",
+  "/dia-diem/tao-voucher": "https://www.canva.com/design/DAG3JmD9Zos/1UkfsMzzW7wJ0thSt2qpaA/view?embed",
+  "/dia-diem/tham-gia-khuyen-mai": "https://www.canva.com/design/DAG3Jmd-wJ8/i0Nxp7SsDGUlFOo451lq4w/view?embed",
+  "/tai-khoan/ma-gioi-thieu": "https://www.canva.com/design/DAG3KE2Xdbw/IDs_X-vrQHrYR2FxEaTegw/view?embed",
+  "/tai-khoan/hoa-hong": "https://www.canva.com/design/DAG3KKjN7YQ/jcDcd3MN074zknazUFZbJw/view?embed",
+  "/dia-diem/tim-kiem": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
+  "/tai-khoan/tinh-nang-ho-tro": "https://www.canva.com/design/DAG3JmDvQBU/yGB98g_KbmCGyRhVNkBJZA/view?embed",
+}
+
 const DEFAULT_VIDEO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ"
 
 export default function HomeV2() {
   const [expandedMode, setExpandedMode] = useState<'image' | 'video' | null>(null)
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [selectedVideoUrl, setSelectedVideoUrl] = useState<string>(DEFAULT_VIDEO_URL)
+  const [selectedCanvaUrl, setSelectedCanvaUrl] = useState<string>(DEFAULT_CANVA_URL)
   const [showCanva, setShowCanva] = useState(false)
 
   const toggleMode = (mode: 'image' | 'video') => {
@@ -118,12 +141,17 @@ export default function HomeV2() {
       if (next === 'video') {
         setSelectedVideoUrl(DEFAULT_VIDEO_URL)
       }
+      if (next === 'image') {
+        setSelectedCanvaUrl(DEFAULT_CANVA_URL)
+      }
       return next
     })
   }
 
-  const handleActionClick = (_href?: string) => {
+  const handleActionClick = (href?: string) => {
     if (expandedMode === 'image') {
+      const url = href ? CANVA_LINKS[href] ?? DEFAULT_CANVA_URL : DEFAULT_CANVA_URL
+      setSelectedCanvaUrl(url)
       setShowCanva(true)
     }
     if (expandedMode === 'video') {
@@ -218,7 +246,7 @@ export default function HomeV2() {
 
         </div>
 
-        <CanvaModal open={showCanva} onOpenChange={setShowCanva} />
+        <CanvaModal open={showCanva} onOpenChange={setShowCanva} canvaUrl={selectedCanvaUrl} />
         <VideoModal open={isVideoOpen} onOpenChange={setIsVideoOpen} videoUrl={selectedVideoUrl} />
       </section>
     </>
