@@ -122,6 +122,7 @@ const CANVA_LINKS: Record<string, string> = {
   "/tai-khoan/ma-gioi-thieu": "https://www.canva.com/design/DAG3KE2Xdbw/IDs_X-vrQHrYR2FxEaTegw/view?embed",
   "/tai-khoan/hoa-hong": "https://www.canva.com/design/DAG3KKjN7YQ/jcDcd3MN074zknazUFZbJw/view?embed",
   "/dia-diem/tim-kiem": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
+  "/tai-khoan/kich-hoat-the": "https://www.canva.com/design/DAG3Um1Rj8w/4MUbn2oj4dQO-hO1ihNVMw/view?embed",
   "/tai-khoan/tinh-nang-ho-tro": "https://www.canva.com/design/DAG3JmDvQBU/yGB98g_KbmCGyRhVNkBJZA/view?embed",
 }
 
