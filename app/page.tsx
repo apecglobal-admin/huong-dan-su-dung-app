@@ -29,6 +29,7 @@ import {
   Package,
   TicketPercent,
   Megaphone,
+  IdCard,
 } from "lucide-react"
 
 type QuickActionChild = {
@@ -60,6 +61,7 @@ const quickActions = [
       { label: "NỘP TIỀN", href: "/nop-rut-tien/nop-tien", icon: Wallet },
       { label: "RÚT TIỀN", href: "/nop-rut-tien/rut-tien", icon: HandCoins },
       { label: "THANH TOÁN", href: "/nop-rut-tien/thanh-toan", icon: CreditCard },
+      { label: "MUA TRƯỚC – TRẢ SAU", href: "/nop-rut-tien/tai-khoan-mua-truoc-tra-sau", icon: IdCard },
     ],
   },
   {
@@ -106,24 +108,25 @@ const DEFAULT_CANVA_URL = "https://www.canva.com/design/DAG3KE2Xdbw/IDs_X-vrQHrY
 
 const CANVA_LINKS: Record<string, string> = {
   "/tai-ung-dung": "https://www.canva.com/design/DAG3KGpL3eo/Jg2nVVBz5XT_odjKNVD-FA/view?embed",
-  "/dang-ky-dang-nhap/dang-ky-dang-nhap": "https://www.canva.com/design/DAG3JKuqwoM/aW4R2Oc-XBGslQk5RwnBIw/view?embed",
-  "/tai-khoan/xac-thuc-ho-so": "https://www.canva.com/design/DAG3Oplp0kg/kVRS5AE9WyqqOdddkZ6Kww/view?embed",
-  "/nop-rut-tien/nop-tien": "https://www.canva.com/design/DAG3JCVt09c/PYare0itQ_mnhG4cgL9Ihg/view?embed",
-  "/nop-rut-tien/rut-tien": "https://www.canva.com/design/DAG3JOz3AHA/vcWIXbADRrZ8GOq2_gv-bw/view?embed",
+  "/dang-ky-dang-nhap/dang-ky-dang-nhap": "https://www.canva.com/design/DAG66CxZIAE/VBAz1EN26-egiQzM0esXaw/view?embed",
+  "/tai-khoan/xac-thuc-ho-so": "https://www.canva.com/design/DAG66PGTtxw/xAOP4MvUAnxkdUPInGRAUQ/view?embed",
+  "/nop-rut-tien/nop-tien": "https://www.canva.com/design/DAG66LaGjhA/pcRV66jrdgyUqDkp7yWyCA/view?embed",
+  "/nop-rut-tien/rut-tien": "https://www.canva.com/design/DAG66HJ2Dro/If1Ol4neucKIhBjfNRgXCw/view?embed",
   "/nop-rut-tien/thanh-toan": "https://www.canva.com/design/DAG3Plz1h_8/YQS9N1mmpViVaolPD1olCg/view?embed",
+  "/nop-rut-tien/tai-khoan-mua-truoc-tra-sau": "https://www.canva.com/design/DAG66F5NWyE/n3-WZXTTZx-ueMT2Pds1tQ/view?embed",
   "/dat-hang/dat-hang-dich-vu": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
-  "/dat-hang/uu-dai": "https://www.canva.com/design/DAG3Plz1h_8/YQS9N1mmpViVaolPD1olCg/view?embed",
-  "/dat-hang/lich-su-giao-dich": "https://www.canva.com/design/DAG3OlPHQqE/EcxFpgWdnUD3rvYzWPxhyA/view?embed",
-  "/dia-diem/dang-ky-cua-hang-title": "https://www.canva.com/design/DAG3JlzQehw/CRbyRtvfkNr3fh9H_AulQg/view?embed",
-  "/dia-diem/cap-nhat-tong-quan": "https://www.canva.com/design/DAG3JvI59tI/_2PUrOcVtXDvKA-RWF8l2w/view?embed",
-  "/dia-diem/them-san-pham": "https://www.canva.com/design/DAG3Jvg68yA/ETpDfJ9IOjvkZI47eEnDJw/view?embed",
-  "/dia-diem/tao-voucher": "https://www.canva.com/design/DAG3JmD9Zos/1UkfsMzzW7wJ0thSt2qpaA/view?embed",
-  "/dia-diem/tham-gia-khuyen-mai": "https://www.canva.com/design/DAG3Jmd-wJ8/i0Nxp7SsDGUlFOo451lq4w/view?embed",
-  "/tai-khoan/ma-gioi-thieu": "https://www.canva.com/design/DAG3KE2Xdbw/IDs_X-vrQHrYR2FxEaTegw/view?embed",
+  "/dat-hang/uu-dai": "https://www.canva.com/design/DAG66GfbGRQ/yJSD2vgkf7tx994yEctIfw/view?embed",
+  "/dat-hang/lich-su-giao-dich": "https://www.canva.com/design/DAG66EB4lwA/CeBdqaXIwNTlJ0Czfr7Jgw/view?embed",
+  "/dia-diem/dang-ky-cua-hang-title": "https://www.canva.com/design/DAG66DBHYJk/Kgvru4NQpNFACqEsnPMNLw/view?embed",
+  "/dia-diem/cap-nhat-tong-quan": "https://www.canva.com/design/DAG66NpavoE/SoSCI-EUbdi1QFujsP2fsA/view?embed",
+  "/dia-diem/them-san-pham": "https://www.canva.com/design/DAG66F4UD0k/lNaqtSJp-a6omcFF3pQ8-Q/view?embed",
+  "/dia-diem/tao-voucher": "https://www.canva.com/design/DAG66NQMqDc/Uk6YlgZXGptwtuTvB5AZ1Q/view?embed",
+  "/dia-diem/tham-gia-khuyen-mai": "https://www.canva.com/design/DAG66JM3ktA/vB_o56IKYrqs0laBh4EdKA/view?embed",
+  "/tai-khoan/ma-gioi-thieu": "https://www.canva.com/design/DAG66GujeoU/YW3vO0xEb92jHQ8u5bBy5A/view?embed",
   "/tai-khoan/hoa-hong": "https://www.canva.com/design/DAG3KKjN7YQ/jcDcd3MN074zknazUFZbJw/view?embed",
-  "/dia-diem/tim-kiem": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
-  "/tai-khoan/kich-hoat-the": "https://www.canva.com/design/DAG3Um1Rj8w/4MUbn2oj4dQO-hO1ihNVMw/view?embed",
-  "/tai-khoan/tinh-nang-ho-tro": "https://www.canva.com/design/DAG3JmDvQBU/yGB98g_KbmCGyRhVNkBJZA/view?embed",
+  "/dia-diem/tim-kiem": "https://www.canva.com/design/DAG66J-evyw/JnLIoj2oQkNodd3WopBNjA/view?embed",
+  "/tai-khoan/kich-hoat-the": "https://www.canva.com/design/DAG66Lnmy2M/NUA4qu4-9IriiGJMoD92UQ/view?embed",
+  "/tai-khoan/tinh-nang-ho-tro": "https://www.canva.com/design/DAG66HZIAz8/J6em4tJbmxQTGZbTO5H-Vg/view?embed",
 }
 
 const DEFAULT_VIDEO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ"
