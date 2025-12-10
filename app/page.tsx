@@ -129,7 +129,35 @@ const CANVA_LINKS: Record<string, string> = {
   "/tai-khoan/tinh-nang-ho-tro": "https://www.canva.com/design/DAG66HZIAz8/J6em4tJbmxQTGZbTO5H-Vg/view?embed",
 }
 
-const DEFAULT_VIDEO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ"
+const DEFAULT_VIDEO_URL = "https://youtu.be/WhebhPsVaH4?si=3smkGx_9rtu9XGcy"
+
+const convertYouTubeUrl = (url: string): string => {
+  const youtubeIdMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([a-zA-Z0-9_-]{11})/)
+  if (youtubeIdMatch && youtubeIdMatch[1]) {
+    return `https://www.youtube.com/embed/${youtubeIdMatch[1]}`
+  }
+  return url
+}
+
+const VIDEO_LINKS: Record<string, string> = {
+  "/dang-ky-dang-nhap/dang-ky-dang-nhap": convertYouTubeUrl("https://youtu.be/TGUNhtMG-BE?si=JS4IUgyNlBzr8KIy"),
+  "/tai-khoan/tinh-nang-ho-tro": convertYouTubeUrl("https://youtu.be/Z0JyQIHqMhI?si=HZ9ISm3ijxPDS2E6"),
+  "/tai-khoan/ma-gioi-thieu": convertYouTubeUrl("https://youtu.be/6WgH6m2v3Eo?si=iZ-i6qSSn1ueWs76"),
+  "/dia-diem/tham-gia-khuyen-mai": convertYouTubeUrl("https://youtu.be/YHc2rjoOJEk?si=8pKS4goPMUKiYEOT"),
+  "/nop-rut-tien/tai-khoan-mua-truoc-tra-sau": convertYouTubeUrl("https://youtu.be/v0MXsEs7wek?si=B7QsKZPDZrgKcIoN"),
+  "/dat-hang/lich-su-giao-dich": convertYouTubeUrl("https://youtu.be/o3Oc6QGtk80?si=cBFjnL5I82uipaK7"),
+  "/dia-diem/them-san-pham": convertYouTubeUrl("https://youtu.be/t4Qb7w-osyU?si=GWpCV5cQM3jQlFKa"),
+  "/tai-khoan/kich-hoat-the": convertYouTubeUrl("https://youtu.be/CRzxwSPAYrg?si=tUZCKkIKVJZWm7uk"),
+  "/nop-rut-tien/rut-tien": convertYouTubeUrl("https://youtu.be/s2CLh8dW2zw?si=b_t_pvhwfLmqDQlc"),
+  "/dia-diem/dang-ky-cua-hang-title": convertYouTubeUrl("https://youtu.be/Dv_Kx2ZHGC8?si=vH1opbH3oKm6kRvl"),
+  "/dia-diem/cap-nhat-tong-quan": convertYouTubeUrl("https://youtu.be/mWZSnLoxjc4?si=H_UGfXdgQE5Xrlu_"),
+  "/dia-diem/tao-voucher": convertYouTubeUrl("https://youtu.be/mWZSnLoxjc4?si=H_UGfXdgQE5Xrlu_"),
+  "/nop-rut-tien/thanh-toan": convertYouTubeUrl("https://youtu.be/UmdhIRuZatc?si=k12zN-flG0DwxMzp"),
+  "/dat-hang/uu-dai": convertYouTubeUrl("https://youtu.be/UmdhIRuZatc?si=k12zN-flG0DwxMzp"),
+  "/dia-diem/tim-kiem": convertYouTubeUrl("https://youtu.be/kVu4zJm01yA?si=yMCx3S40no8maFxO"),
+  "/tai-khoan/xac-thuc-ho-so": convertYouTubeUrl("https://youtu.be/b__bP2euxZc?si=HSBGztSE_yqSuLAc"),
+    "/tai-khoan/hoa-hong": convertYouTubeUrl("vhttps://youtu.be/Lya7IyZYouI?si=26iZcwOg1c9sKlXS"),
+}
 
 export default function HomeV2() {
   const [expandedMode, setExpandedMode] = useState<'image' | 'video' | null>(null)
@@ -160,7 +188,8 @@ export default function HomeV2() {
       setShowCanva(true)
     }
     if (expandedMode === 'video') {
-      setSelectedVideoUrl(DEFAULT_VIDEO_URL)
+      const url = href ? VIDEO_LINKS[href] ?? DEFAULT_VIDEO_URL : DEFAULT_VIDEO_URL
+      setSelectedVideoUrl(url)
       setIsVideoOpen(true)
     }
   }
