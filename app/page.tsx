@@ -114,7 +114,7 @@ const CANVA_LINKS: Record<string, string> = {
   "/nop-rut-tien/rut-tien": "https://www.canva.com/design/DAG66HJ2Dro/If1Ol4neucKIhBjfNRgXCw/view?embed",
   "/nop-rut-tien/thanh-toan": "https://www.canva.com/design/DAG3Plz1h_8/YQS9N1mmpViVaolPD1olCg/view?embed",
   "/nop-rut-tien/tai-khoan-mua-truoc-tra-sau": "https://www.canva.com/design/DAG66F5NWyE/n3-WZXTTZx-ueMT2Pds1tQ/view?embed",
-  "/dat-hang/dat-hang-dich-vu": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
+  // "/dat-hang/dat-hang-dich-vu": "https://www.canva.com/design/DAG3Jo85q-c/w_90I0FBxP-81u56zRmvKg/view?embed",
   "/dat-hang/uu-dai": "https://www.canva.com/design/DAG66GfbGRQ/yJSD2vgkf7tx994yEctIfw/view?embed",
   "/dat-hang/lich-su-giao-dich": "https://www.canva.com/design/DAG66EB4lwA/CeBdqaXIwNTlJ0Czfr7Jgw/view?embed",
   "/dia-diem/dang-ky-cua-hang-title": "https://www.canva.com/design/DAG66DBHYJk/Kgvru4NQpNFACqEsnPMNLw/view?embed",
@@ -140,6 +140,7 @@ const convertYouTubeUrl = (url: string): string => {
 }
 
 const VIDEO_LINKS: Record<string, string> = {
+  "/tai-ung-dung": convertYouTubeUrl("https://www.youtube.com/watch?v=TGUNhtMG-BE&list=PLck4m3vZrDG2IL7mXeu9V2iVEDiHE_FZQ&index=16"),
   "/dang-ky-dang-nhap/dang-ky-dang-nhap": convertYouTubeUrl("https://youtu.be/TGUNhtMG-BE?si=JS4IUgyNlBzr8KIy"),
   "/tai-khoan/tinh-nang-ho-tro": convertYouTubeUrl("https://youtu.be/Z0JyQIHqMhI?si=HZ9ISm3ijxPDS2E6"),
   "/tai-khoan/ma-gioi-thieu": convertYouTubeUrl("https://youtu.be/6WgH6m2v3Eo?si=iZ-i6qSSn1ueWs76"),
@@ -149,6 +150,7 @@ const VIDEO_LINKS: Record<string, string> = {
   "/dia-diem/them-san-pham": convertYouTubeUrl("https://youtu.be/t4Qb7w-osyU?si=GWpCV5cQM3jQlFKa"),
   "/tai-khoan/kich-hoat-the": convertYouTubeUrl("https://youtu.be/CRzxwSPAYrg?si=tUZCKkIKVJZWm7uk"),
   "/nop-rut-tien/rut-tien": convertYouTubeUrl("https://youtu.be/s2CLh8dW2zw?si=b_t_pvhwfLmqDQlc"),
+  "/nop-rut-tien/nop-tien": convertYouTubeUrl("https://www.youtube.com/shorts/md0NoA8Wxzw"),
   "/dia-diem/dang-ky-cua-hang-title": convertYouTubeUrl("https://youtu.be/Dv_Kx2ZHGC8?si=vH1opbH3oKm6kRvl"),
   "/dia-diem/cap-nhat-tong-quan": convertYouTubeUrl("https://youtu.be/mWZSnLoxjc4?si=H_UGfXdgQE5Xrlu_"),
   "/dia-diem/tao-voucher": convertYouTubeUrl("https://youtu.be/mWZSnLoxjc4?si=H_UGfXdgQE5Xrlu_"),
