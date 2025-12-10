@@ -150,7 +150,7 @@ const VIDEO_LINKS: Record<string, string> = {
   "/dia-diem/them-san-pham": convertYouTubeUrl("https://youtu.be/t4Qb7w-osyU?si=GWpCV5cQM3jQlFKa"),
   "/tai-khoan/kich-hoat-the": convertYouTubeUrl("https://youtu.be/CRzxwSPAYrg?si=tUZCKkIKVJZWm7uk"),
   "/nop-rut-tien/rut-tien": convertYouTubeUrl("https://youtu.be/s2CLh8dW2zw?si=b_t_pvhwfLmqDQlc"),
-  "/nop-rut-tien/nop-tien": convertYouTubeUrl("https://www.youtube.com/shorts/md0NoA8Wxzw"),
+  "/nop-rut-tien/nop-tien": convertYouTubeUrl("https://youtu.be/md0NoA8Wxzw?si=1oFJ9TC-irowU1gC"),
   "/dia-diem/dang-ky-cua-hang-title": convertYouTubeUrl("https://youtu.be/Dv_Kx2ZHGC8?si=vH1opbH3oKm6kRvl"),
   "/dia-diem/cap-nhat-tong-quan": convertYouTubeUrl("https://youtu.be/mWZSnLoxjc4?si=H_UGfXdgQE5Xrlu_"),
   "/dia-diem/tao-voucher": convertYouTubeUrl("https://youtu.be/mWZSnLoxjc4?si=H_UGfXdgQE5Xrlu_"),
