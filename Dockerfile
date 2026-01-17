@@ -24,6 +24,9 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+# Enable pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 # Copy build output
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/public ./public
