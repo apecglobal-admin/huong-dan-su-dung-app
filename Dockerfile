@@ -3,7 +3,14 @@ FROM node:22-alpine AS base
 WORKDIR /app
 
 # Enable pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+ARG PNPM_VERSION=10.29.3
+RUN corepack enable \
+    && corepack prepare pnpm@${PNPM_VERSION} --activate \
+    && pnpm config set fetch-retries 5 \
+    && pnpm config set fetch-retry-mintimeout 20000 \
+    && pnpm config set fetch-retry-maxtimeout 120000 \
+    && pnpm config set fetch-timeout 600000 \
+    && pnpm config set network-concurrency 4
 
 # ---------- Dependencies ----------
 FROM base AS deps
@@ -25,7 +32,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Enable pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+ARG PNPM_VERSION=10.29.3
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 # Copy build output
 COPY --from=build /app/.next ./.next
